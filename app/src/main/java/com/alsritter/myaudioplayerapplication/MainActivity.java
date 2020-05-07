@@ -359,6 +359,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         updateProgress();
     }
 
+    //v1
 
     //    下一首音乐
     private void nextMusic() {
