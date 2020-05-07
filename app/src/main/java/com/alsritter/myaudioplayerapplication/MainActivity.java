@@ -104,6 +104,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+    //以后添加一个播放的音乐高亮的功能
+
+
+
     //    创建一个播放模式通用类当作枚举
     enum PlayMode {
         RANDOM, LIST
