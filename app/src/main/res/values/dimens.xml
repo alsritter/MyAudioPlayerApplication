@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="ico_music_size">55dp</dimen>
+    <dimen name="layout_ico_music_margin">5dp</dimen>
+    <dimen name="screen_edge_margin">16dp</dimen>
+    <dimen name="list_padding_top">8dp</dimen>
+    <dimen name="list_padding_bottom_with_fab">88dp</dimen>
+</resources>

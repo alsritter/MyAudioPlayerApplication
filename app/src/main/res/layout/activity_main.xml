@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D9E1E8">
+
+
+    <!--    顶部的显示栏目 -->
+    <RelativeLayout
+        android:id="@+id/local_music_top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentTop="true"
+        android:background="#AAC3C6"
+        android:elevation="10dp">
+
+
+        <TextView
+            android:id="@+id/music_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text=""
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/singer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/music_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text=""
+            android:textColor="#353535"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/local_music_bottom_layout"
+        android:layout_below="@id/local_music_top_layout"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp">
+
+        <!--    显示歌曲栏目-->
+        <!--这个滑动条的横向纵向的都要设置-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/music_items"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.trendyol.bubblescrollbarlib.BubbleScrollBar
+            android:id="@+id/bubbleScrollBar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:orientation="vertical"
+            app:bubbleBackground="@drawable/thumb_drawable"
+            app:bubbleElevation="1dp"
+            app:bubbleHeight="50dp"
+            app:bubbleMargin="4dp"
+            app:bubbleMinWidth="50dp"
+            app:bubbleTextColor="@color/default_bubble_text_color"
+            app:bubbleTextSize="8sp"
+            app:thumbBackground="@color/colorAccent" />
+
+
+
+
+    </FrameLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/local_music_bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:background="#96DADA"
+        android:elevation="10dp">
+
+        <!-- 添加一个进度条-->
+
+        <LinearLayout
+            android:id="@+id/layout_music_progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!--现在播放时间-->
+            <TextView
+                android:id="@+id/now_progress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="00:00"
+                android:textColor="#888"
+                android:textSize="14sp" />
+
+            <!--            进度条-->
+            <SeekBar
+                android:id="@+id/music_progress_bar"
+                style="@style/Widget.AppCompat.SeekBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="5"
+                android:max="100"
+                android:progress="0"
+                android:secondaryProgress="50" />
+
+            <!--总时才-->
+            <TextView
+                android:id="@+id/total_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="00:00"
+                android:textColor="#888"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+
+        <!--按钮区-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_music_progress_bar">
+
+            <!-- 乱序播放-->
+            <ImageView
+                android:id="@+id/the_shuffle_music"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/layout_ico_music_margin"
+                android:layout_toStartOf="@id/the_last_music"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:src="@drawable/ic_repeat_black_24dp" />
+
+
+            <!--   上一首-->
+            <ImageView
+                android:id="@+id/the_last_music"
+                android:layout_width="@dimen/ico_music_size"
+                android:layout_height="@dimen/ico_music_size"
+                android:layout_margin="@dimen/layout_ico_music_margin"
+                android:layout_toStartOf="@id/the_play_music"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:src="@drawable/ic_skip_previous_black_24dp" />
+
+            <!-- 播放按钮-->
+            <ImageView
+                android:id="@+id/the_play_music"
+                android:layout_width="@dimen/ico_music_size"
+                android:layout_height="@dimen/ico_music_size"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/layout_ico_music_margin"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:src="@drawable/ic_play_circle_outline_black_24dp"
+                android:contentDescription="TODO" />
+
+
+            <!--  下一首音乐-->
+            <ImageView
+                android:id="@+id/the_next_music"
+                android:layout_width="@dimen/ico_music_size"
+                android:layout_height="@dimen/ico_music_size"
+                android:layout_margin="@dimen/layout_ico_music_margin"
+                android:layout_toEndOf="@id/the_play_music"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:src="@drawable/ic_skip_next_black_24dp"
+                android:contentDescription="TODO" />
+
+            <!--重播一遍-->
+            <ImageView
+                android:id="@+id/the_replay_music"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/layout_ico_music_margin"
+                android:layout_toEndOf="@id/the_next_music"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:src="@drawable/ic_replay_black_24dp"
+                android:contentDescription="TODO" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
