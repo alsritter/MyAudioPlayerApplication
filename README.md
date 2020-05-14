@@ -3,4 +3,4 @@
 #### 介绍
 This is My First Android Project.
 
-user `SeekBar` ,`BubbleScrollBar`, `RecyclerView`
+`SeekBar` ,`BubbleScrollBar`, `RecyclerView`
